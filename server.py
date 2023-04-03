@@ -233,8 +233,6 @@ def add_product():
             productID, product_name, price, description)))
         g.conn.commit()
         return redirect(url_for('add_product_success'))
-    else:
-        return render_template('index.html')
 
 
 @app.route('/add_product_success')
