@@ -221,6 +221,7 @@ add new product
 
 @app.route('/add_product', methods=['GET', 'POST'])
 def add_product():
+    return render_template('add_product.html')
     if request.method == 'POST':
         # accessing form inputs from user
         productID = request.form['productID']
