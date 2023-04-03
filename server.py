@@ -219,24 +219,32 @@ def search_product():
 add new product
 '''
 
-
-@app.route('/add_product', methods=['POST'])
+@app.route('/add_product', methods=['GET', 'POST'])
 def add_product():
-    # accessing form inputs from user
-    productID = request.form['productID']
-    product_name = request.form['product_name']
-    price = request.form['price ']
-    description = request.form['description']
-    # passing params in for each variable into query
-    g.conn.execute(text('INSERT INTO product VALUES (\'{}\',\'{}\',\'{}\',\'{}\')'.format(
-        productID, product_name, price, description)))
-    g.conn.commit()
-    return redirect(url_for('add_product_success'))
+    if request.method == 'POST':
+        # accessing form inputs from user
+        productID = request.form['productID']
+        product_name = request.form['product_name']
+        price = request.form['price']
+        description = request.form['description']
+        # passing params in for each variable into query
+        g.conn.execute(text('INSERT INTO product VALUES (\'{}\',\'{}\',\'{}\',\'{}\')'.format(
+            productID, product_name, price, description)))
+        g.conn.commit()
+        return redirect(url_for('add_product_success'))
+    else:
+        return render_template('index.html')
 
 
 @app.route('/add_product_success')
 def add_product_success():
     return render_template("add_product_success.html")
+
+
+
+
+
+
 
 
 
