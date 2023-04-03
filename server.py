@@ -133,10 +133,13 @@ def redirect_to_search_product():
     return redirect(url_for('search_product', price_low=price_low, price_high=price_high))
 
 
-@app.route('/add_new_product', methods=['POST'])
-def add_new_product():
-    # code to add new product to database
-    return redirect(url_for('add_product_success'))
+@app.route('/redirect_to_add_product', methods=['POST'])
+def redirect_to_add_product():
+    productID = request.form['productID']
+    product_name = request.form['product_name']
+    price = request.form['price ']
+    description = request.form['description']
+    return redirect(url_for('add_product',productID=productID, product_name=product_name, price=price, description=description)
 
 
 '''
@@ -228,20 +231,14 @@ def add_product():
     g.conn.execute(text('INSERT INTO product VALUES (\'{}\',\'{}\',\'{}\',\'{}\')'.format(
         productID, product_name, price, description)))
     g.conn.commit()
+    return redirect(url_for('add_product_success'))
+
+
+@app.route('/add_product_success')
+def add_product_success():
     return render_template("add_product_success.html")
 
 
-'''
-add new data
-'''
-
-
-@app.route('/find_customers_orderstatus', methods=['POST'])
-def find_customers_orderstatus():
-    # accessing form inputs from user
-    current_status = request.form['current_status']
-    # passing params in for each variable into query
-    return redirect(url_for('customer_order_status', current_status=current_status))
 
 
 @app.route('/login')
