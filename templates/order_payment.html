@@ -23,10 +23,18 @@
 			{% endfor %}
 		</table>
 	{% else %}
-		<p>No payment details found for this order ID.</p>
+		<p>{{ message }}</p>
 	{% endif %}
+	
+	<form action="/order_payment" method="get">
+		<label for="orderID">Enter your order ID:</label>
+		<input type="text" id="orderID" name="orderID" required>
+		<input type="submit" value="Submit">
+	</form>
+	
 	<form action="/" method="get">
 		<input type="submit" value="Return to Home Page">
 	</form>
 </body>
 </html>
+
