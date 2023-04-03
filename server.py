@@ -139,7 +139,7 @@ def redirect_to_add_product():
     product_name = request.form['product_name']
     price = request.form['price ']
     description = request.form['description']
-    return redirect(url_for('add_product',productID=productID, product_name=product_name, price=price, description=description)
+    return redirect(url_for('add_product',productID=productID, product_name=product_name, price=price, description=description))
 
 
 '''
