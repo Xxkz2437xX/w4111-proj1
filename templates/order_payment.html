@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Order Payment Details</title>
+  </head>
+  <body>
+    <h1>Order Payment Details</h1>
+    <form method="GET" action="/order_payment">
+      <label for="orderID">Enter your order ID:</label>
+      <input type="text" name="orderID" id="orderID">
+      <button type="submit">Submit</button>
+    </form>
+    {% if data %}
+      <h2>Transaction Details for Order {{ data[0]['orderID'] }}</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Transaction ID</th>
+            <th>Payment Type</th>
+            <th>Amount</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for transaction in data %}
+            <tr>
+              <td>{{ transaction['transactionID'] }}</td>
+              <td>{{ transaction['paymentType'] }}</td>
+              <td>{{ transaction['amount'] }}</td>
+              <td>{{ transaction['date'] }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+  </body>
+</html>
