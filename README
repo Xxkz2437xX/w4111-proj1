@@ -1,0 +1,7 @@
+DB username:kz2437
+password:5539
+
+http://34.23.137.161:8111/
+
+
+My application has total 5 functionalities: checking for the status and details about an order, checking for the payment info for an order, checking for the possible customers who have a specific order status, and search for products within a specific price range, and adding a new product. Different from my propsal, I didn't implement the functionality that allowed the user to check for the recent order of a specific address and the products that have been purchased more than once. I didn't implement this functionality because I included other functionalities that allow the users to get info about the orders, the products and the customers. I also didn't implement the functionality that detected the possible credit card frauds, because it might take a lot more time to realize and I am the only one in this team. I think the most interesting database operations are the customer_order_status() and search_product() operations. For the customer_order_status(), it will ask the user for a specific order status(the default is "cancelled") and it will return all the customers who possibly have orders with that status. There are cases in which people have the same address, so customer_order_status() will just return all the customers who live in that address with a specific order status. For search_product(), it will ask for a lower bound and a upper bound for the price of products and it will return all the products within that price range. By default, it will return all the products. 
