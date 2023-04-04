@@ -221,7 +221,6 @@ add new product
 
 @app.route('/add_product', methods=['GET', 'POST'])
 def add_product():
-    return render_template('add_product.html')
     if request.method == 'POST':
         # accessing form inputs from user
         productID = request.form['productID']
@@ -233,6 +232,9 @@ def add_product():
             productID, product_name, price, description)))
         g.conn.commit()
         return redirect(url_for('add_product_success'))
+    else:
+        return render_template('add_product.html')
+
 
 
 @app.route('/add_product_success')
