@@ -1,0 +1,118 @@
+INSERT INTO address(addressID, street, city, state, country, zip) VALUES
+('A1', '777 Brockton Avenue', 'Abington', 'MA', 'USA', '2351'),
+('A2', '30 Memorial Drive', 'Avon', 'MA', 'USA', '2322'),
+('A3', '250 Hartford Avenue', 'Bellingham', 'MA', 'USA', '2019'),
+('A4', '700 Oak Street', 'Brockton', 'MA', 'USA', '2301'),
+('A5', '66-4 Parkhurst Rd', 'Chelmsford', 'MA', 'USA', '1824'),
+('A6', '141 Washington Ave Extension', 'Albany', 'NY', 'USA', '12205'),
+('A7', '13858 Rt 31 W', 'Albion', 'NY', 'USA', '14411'),
+('A8', '7135 Fairgrounds Memorial Pkwy', 'Ithaca', 'NY', 'USA', '14850'),
+('A9', '315 Foxon Blvd', 'New Haven', 'CT', 'USA', '6513'),
+('A10', '312 Palisades Blvd', 'Birmingham', 'AL', 'USA', '35209'),
+('A11', '1600 Montclair Rd', 'Birmingham', 'AL', 'USA', '35210'),
+('A12', '5919 Trussville Crossings Pkwy', 'Birmingham', 'AL', 'USA', '35235'),
+('A13', '16077 Highway 280', 'Chelsea', 'AL', 'USA', '35043'),
+('A14', '1415 7Th Street South', 'Clanton', 'AL', 'USA', '35045'),
+('A15', '626 Olive Street Sw', 'Cullman', 'AL', 'USA', '35055'),
+('A16', '27520 Hwy 98', 'Daphne', 'AL', 'USA', '36526'),
+('A17', '2800 Spring Avn SW', 'Decatur', 'AL', 'USA', '35603'),
+('A18', '969 Us Hwy 80 West', 'Demopolis', 'AL', 'USA', '36732'),
+('A19', '3300 South Oates Street', 'Dothan', 'AL', 'USA', '36301'),
+('A20', '4310 Montgomery Hwy', 'Dothan', 'AL', 'USA', '36303');
+
+
+
+INSERT INTO product(productID, product_name, price, description) VALUES
+('B01N90RZ4M', 'Tata Sky Universal Remote', 46.00, 'RemoteControls'),
+('B096MSW6CT', 'Sounce Fast Phone Charging Cable', 39.00, 'Cables&Accessories'),
+('B08DDRGWTJ', 'MI Usb Type-C Cable Smartphone', 26.00, 'Accessories&Peripherals'),
+('B09V17S2BG', 'boAt Wave Lite Smartwatch', 399.00, 'WearableTechnology'),
+('B0B23LW7NV', 'Spigen EZ Fit Tempered Glass Screen Protector for iPhone 14 Pro Max', 25.00, '1824ScreenProtectors'),
+('B07M69276N', 'TP-Link AC1300 USB WiFi Adapter', 98.00, 'NetworkAdapters'),
+('B09NNGHG22', 'Sansui 4K Ultra HD Certified Android LED TV', 5299.00, 'HomeTheater,TV&Video'),
+('B006LW0WDQ', 'Amazon Basics 16-Gauge Speaker Wire', 19.00, 'SpeakerCables'),
+('B0758F7KK7', 'Caprigo Heavy Duty TV Wall Mount Bracket for 14 to 32 Inch LED/HD/Smart TV’s', 39.00, 'TVMounts,Stands&Turntables'),
+('B08NCKT9FG', 'Boat A 350 Type C Cable 1.5m', 29.00, 'Cables&Accessories');
+
+
+
+INSERT INTO customer(customerID, first_name, last_name, phone_number, addressID) VALUES
+('CG-12520', 'Claire', 'Gute', '659-3323-783', 'A10'),
+('BH-11710', 'Brosina', 'Hoffman', '508-7716-534', 'A3'),
+('AA-10480', 'Andrew', 'Allen', '203-7716-968', 'A9'),
+('IM-15070', 'Irene', 'Maddox', '607-323-4591', 'A8'),
+('HP-14815', 'Harold', 'Pawlan', '978-3634-720', 'A5'),
+('PK-19075', 'Pete', 'Kriz', '659-407-3513', 'A12'),
+('AG-10270', 'Alejandro', 'Grove', '659-3145-965', 'A10'),
+('ZD-21925', 'Zuschuss', 'Donatelli', '203-6733-597', 'A9'),
+('KB-16585', 'Ken', 'Black', '938-4675-503', 'A17'),
+('EB-13870', 'Emily', 'Burns', '518-7873-518', 'A6');
+
+
+
+
+INSERT INTO credit_card(card_number, expiration_date, CVC, holder_name, customerID) VALUES
+('8638-5407-3631-8196', '2027-06-19', '001', 'Claire Gute', 'CG-12520'),
+('7106-4239-7093-1515', '2025-01-22', '623', 'Claire Gute', 'CG-12520'),
+('6492-5655-8241-3530', '2026-10-07', '992', 'Brosina Hoffman', 'BH-11710'),
+('2868-5606-5152-5706', '2027-08-10', '001', 'Irene Maddox', 'IM-15070'),
+('1438-6906-2509-8219', '2025-04-07', '753', 'Harold Pawlan', 'HP-14815'),
+('2764-7023-8396-5255', '2027-12-23', '356', 'Harold Pawlan', 'HP-14815'),
+('4864-7119-5608-7611', '2025-04-12', '001', 'Pete Kriz', 'PK-19075'),
+('5160-8427-6529-3274', '2027-06-09', '064', 'Alejandro Gute', 'AG-10270'),
+('1481-2536-2178-7547', '2027-09-09', '546', 'Zuschuss Donatelli', 'ZD-21925'),
+('1355-1728-8274-9593', '2026-03-22', '634', 'Zuschuss Donatelli', 'ZD-21925'),
+('9621-6787-7890-7470', '2027-01-20', '330', 'Zuschuss Donatelli', 'ZD-21925'),
+('6385-4594-8055-9081', '2025-09-28', '597', 'Emily Burns', 'EB-13870');
+
+
+
+
+
+
+
+
+INSERT INTO orders(orderID, placing_date, shipping_date, current_status, quantity, addressID, card_number, productID) VALUES
+('O1', '2022-02-21', '2022-02-23', 'delivered', 1, 'A3', '6492-5655-8241-3530', 'B08DDRGWTJ'),
+('O2', '2022-01-17', '2022-01-18', 'delivered', 2, 'A10', '7106-4239-7093-1515', 'B0B23LW7NV'),
+('O3', '2022-01-06', '2022-01-09', 'delivered', 1, 'A9', '1481-2536-2178-7547', 'B09V17S2BG'),
+('O4', '2022-02-01', '2022-02-03', 'delivered', 1, 'A9', '1481-2536-2178-7547', 'B006LW0WDQ'),
+('O5', '2022-02-27', '2022-03-01', 'delivered', 1, 'A5', '1438-6906-2509-8219', 'B08DDRGWTJ'),
+('O6', '2022-02-07', '2022-02-07', 'delivered', 1, 'A12', '4864-7119-5608-7611', 'B07M69276N'),
+('O7', '2022-02-21', '2022-02-23', 'delivered', 1, 'A12', '4864-7119-5608-7611', 'B08DDRGWTJ'),
+('O8', '2022-02-07', '2022-02-08', 'delivered', 1, 'A12', '4864-7119-5608-7611', 'B0758F7KK7'),
+('O9', '2022-03-05', null, 'placed', 3, 'A6', '6385-4594-8055-9081', 'B08DDRGWTJ'),
+('O10', '2022-02-11', null, 'cancelled', 1, 'A10', '8638-5407-3631-8196', 'B096MSW6CT');
+
+
+
+
+
+INSERT INTO transaction(transaction_number, amount, time, transaction_status, orderID) VALUES
+('768805383', 32.00, '2022-02-21 21:22:23', 'successful', 'O1'),
+('818770008', 59.00, '2022-01-17 21:16:32', 'successful', 'O2'),
+('713982108', 412.00, '2022-01-06 15:07:41', 'successful', 'O3'),
+('769911858', 24.00, '2022-02-01 18:08:03', 'successful', 'O4'),
+('709106358', 32.00, '2022-02-27 19:11:27', 'successful', 'O5'),
+('713061558', 110.00, '2022-02-07 22:12:21', 'successful', 'O6'),
+('810347208', 32.00, '2022-02-21 19:13:36', 'successful', 'O7'),
+('818906208', 44.00, '2022-02-07 13:44:39', 'successful', 'O8'),
+('710930508', 92.00, '2022-03-05 16:05:51', 'successful', 'O9'),
+('719661558', 47.00, '2022-02-11 23:10:15', 'declined', 'O10');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

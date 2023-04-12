@@ -1,0 +1,67 @@
+CREATE TABLE address(
+addressID      VARCHAR(10) PRIMARY KEY,
+street         VARCHAR(35) NOT NULL,
+city           VARCHAR(20) NOT NULL,
+state          VARCHAR(20) NOT NULL,
+country        VARCHAR(25) NOT NULL,
+zip            VARCHAR(5) NOT NULL
+);
+
+
+CREATE TYPE OSTATUS AS ENUM ('placed', 'cancelled', 'pending', 'delivering', 'delivered');
+CREATE TABLE orders(
+orderID         VARCHAR(10) PRIMARY KEY,
+placing_date    DATE NOT NULL,
+shipping_date   DATE,
+current_status  OSTATUS NOT NULL,
+quantity        NUMERIC(2) NOT NULL,
+addressID       VARCHAR(10) REFERENCES address (addressID) NOT NULL,
+card_number     VARCHAR(25) REFERENCES credit_card (card_number) NOT NULL,
+productID       VARCHAR(10) REFERENCES product (productID) NOT NULL,
+CHECK (quantity > 0),
+CONSTRAINT valid_date CHECK (shipping_date > placing_date)
+);
+
+
+
+CREATE TABLE product(
+productID        VARCHAR(10) PRIMARY KEY,
+product_name     VARCHAR(100) NOT NULL,
+price            NUMERIC(8,2) NOT NULL,
+description      VARCHAR(50),
+CHECK (price > 0)
+);
+
+
+
+CREATE TABLE customer(
+customerID        VARCHAR(10) PRIMARY KEY,
+first_name        VARCHAR(20) NOT NULL,
+last_name         VARCHAR(20) NOT NULL,
+phone_number      VARCHAR(12) NOT NULL,
+addressID         VARCHAR(10) REFERENCES address (addressID) NOT NULL
+);
+
+
+
+
+CREATE TABLE credit_card(
+card_number          VARCHAR(20) PRIMARY KEY,
+expiration_date      DATE NOT NULL,
+CVC                  VARCHAR(3) NOT NULL,
+holder_name          VARCHAR(45) NOT NULL,     
+customerID           VARCHAR(10) REFERENCES customer (customerID) NOT NULL
+);
+
+
+
+
+CREATE TYPE TSTATUS AS ENUM ('successful', 'pending', 'declined');
+CREATE TABLE transaction(
+transaction_number    VARCHAR(30) PRIMARY KEY,
+amount                NUMERIC(8,2) NOT NULL,
+time                  TIMESTAMP NOT NULL,
+transaction_status    TSTATUS NOT NULL,
+orderID               VARCHAR(10) REFERENCES orders (orderID) NOT NULL,
+CHECK (amount > 0)
+);
