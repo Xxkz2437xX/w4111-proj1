@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Search Products</title>
+  </head>
+  <body>
+    <h1>Search Products</h1>
+    <form action="{{ url_for('search_product') }}" method="get">
+      <label for="price_low">Price Low:</label>
+      <input type="text" id="price_low" name="price_low" value="{{ request.args.get('price_low', '0') }}">
+      <br><br>
+      <label for="price_high">Price High:</label>
+      <input type="text" id="price_high" name="price_high" value="{{ request.args.get('price_high', '100000') }}">
+      <br><br>
+      <input type="submit" value="Search">
+    </form>
+    <br>
+    <h2>Search Results</h2>
+    {% if data %}
+      <table>
+        <tr>
+          <th>Product ID</th>
+          <th>Product Name</th>
+          <th>Price</th>
+        </tr>
+        {% for product in data %}
+          <tr>
+            <td>{{ product.productID }}</td>
+            <td>{{ product.product_name }}</td>
+            <td>{{ product.price }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>No products found.</p>
+    {% endif %}
+  </body>
+</html>
+

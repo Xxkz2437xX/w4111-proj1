@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Customer Order Status</title>
+</head>
+<body>
+	<h1>Customers with Orders of Specific Status</h1>
+	<form action="/customer_order_status" method="GET">
+		<label for="current_status">Current Status:</label>
+		<input type="text" id="current_status" name="current_status" placeholder="Enter Status...">
+		<input type="submit" value="Submit">
+	</form>
+	{% if data %}
+		<h2>Customers with {{current_status}} orders:</h2>
+		<table>
+			<tr>
+				<th>Customer ID</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+			</tr>
+			{% for customer in data %}
+			<tr>
+				<td>{{ customer.customerid }}</td>
+				<td>{{ customer.first_name }}</td>
+				<td>{{ customer.last_name }}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	{% endif %}
+</body>
+</html>
+

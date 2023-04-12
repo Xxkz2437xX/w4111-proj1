@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Order Status</title>
+  </head>
+  <body>
+    <h1>Order Status</h1>
+    <form method="GET" action="/order_status">
+      <label for="orderID">Enter Order ID:</label>
+      <input type="text" id="orderID" name="orderID">
+      <br><br>
+      <input type="submit" value="Submit">
+    </form>
+    <br>
+    {% if data %}
+      <h2>Order Details:</h2>
+      <table>
+        <tr>
+          <th>Order ID</th>
+          <th>Placing Date</th>
+          <th>Shipping Date</th>
+          <th>Current Status</th>
+          <th>Product Name</th>
+          <th>Price</th>
+        </tr>
+        {% for result in data %}
+          <tr>
+            <td>{{ result[0] }}</td>
+            <td>{{ result[1] }}</td>
+            <td>{{ result[2] }}</td>
+            <td>{{ result[3] }}</td>
+            <td>{{ result[4] }}</td>
+            <td>{{ result[5] }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% endif %}
+  </body>
+</html>
+
